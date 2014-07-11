@@ -8,15 +8,15 @@ Modified Defuse.ca's Pastebin
 
 Database Table
 --------------
-> desc pastes;
-> +---------+-------------+------+-----+---------+-------+
-> | Field   | Type        | Null | Key | Default | Extra |
-> +---------+-------------+------+-----+---------+-------+
-> | token   | varchar(70) | YES  |     | NULL    |       |
-> | data    | text        | YES  |     | NULL    |       |
-> | time    | int(11)     | YES  |     | NULL    |       |
-> | jscrypt | text        | YES  |     | NULL    |       |
-> +---------+-------------+------+-----+---------+-------+
+ desc pastes;
+    +---------+-------------+------+-----+---------+-------+
+    | Field   | Type        | Null | Key | Default | Extra |
+    +---------+-------------+------+-----+---------+-------+
+    | token   | varchar(70) | YES  |     | NULL    |       |
+    | data    | text        | YES  |     | NULL    |       |
+    | time    | int(11)     | YES  |     | NULL    |       |
+    | jscrypt | text        | YES  |     | NULL    |       |
+    +---------+-------------+------+-----+---------+-------+
 
 Setup
 -----
