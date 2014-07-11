@@ -6,5 +6,5 @@
  * This code is in the public domain. There is no warranty.
  */
 header("HTTP/1.1 301 Moved Permanently");
-header('Location: https://defuse.ca/pastebin.htm');
+header("Location: {$baseURL}/pastebin.html");
 ?>

@@ -1,14 +1,30 @@
-Defuse.ca's Pastebin
-====================
+Modified Defuse.ca's Pastebin
+=============================
 
-This code is ripped out of defuse.ca's pastebin. It does not work on its own
-but with some modification you should be able to get it to work:
 
-- Replace "defuse.ca" hard-coded strings with your own domain.
-- Make sure all the paths are correct.
-- Set up the apache redirection rules.
-- pastebin.html is supposed to be a PHP file with the homepage (this was
-  ripped out of my CMS so it's missing the HTML &lt;head&gt; and stuff.
-- Lots of other stuff I'm probably forgetting.
+- Restored original code from defuse.ca (https://github.com/defuse/pastebin)
+- Recreated MySQL DB
+- Added config.php for rapid deployment
 
-Good luck!
+Database Table
+--------------
+desc pastes;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| token   | varchar(70) | YES  |     | NULL    |       |
+| data    | text        | YES  |     | NULL    |       |
+| time    | int(11)     | YES  |     | NULL    |       |
+| jscrypt | text        | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+
+Setup
+-----
+mysql -p
+> CREATE DATABASE pastebin;
+> CREATE TABLE pastes (token VARCHAR(70), data TEXT, time INTEGER, jscrypt TEXT);
+
+TODO:
+-----
+- Pretty up the UI. pastebin.html hasn't really been touched
+- Burn after reading?

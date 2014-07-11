@@ -7,6 +7,7 @@
  */
 
 require_once('pastebin.php');
+require_once('config.php');
 
 // Never show a post over an insecure connection
 if($_SERVER["HTTPS"] != "on") {
@@ -17,17 +18,15 @@ if($_SERVER["HTTPS"] != "on") {
 
 delete_expired_posts();
 
-if (strpos($_SERVER['HTTP_HOST'], "bin.defuse.ca") !== false) {
-    $urlKey = substr($_SERVER['REQUEST_URI'], 1);
-    header("Location: https://defuse.ca/b/{$urlKey}");
+/*
+ * Instead of rewrite rules, just handle post retrieval here
+ * /view.php?key=postkey
+ */
+if (!isset($_GET['key'])) {
+    echo "Error: Sorry, the paste you were looking for could not be found.";
     die();
 }
-
-$keyEnd = strpos($_SERVER['REQUEST_URI'], "?");
-if ($keyEnd === false) {
-    $keyEnd = strlen($_SERVER['REQUEST_URI']);
-}
-$urlKey = substr($_SERVER['REQUEST_URI'], 3, $keyEnd - 3);
+$urlKey = $_GET['key'];
 
 $postInfo = retrieve_post($urlKey);
 
@@ -183,7 +182,7 @@ function encryptPaste()
 </script>
 <!-- End of scripts for client-side decryption -->
 
-<h1 id="header"><a href="https://defuse.ca/pastebin.htm">Defuse Security</a>'s Pastebin</h1>
+<h1 id="header"><a href="<?=$baseURL;?>/pastebin.html">Defuse Security</a>'s Pastebin</h1>
 
 <?php
 
@@ -226,7 +225,7 @@ if($postInfo !== false)
 	}
 
 	?>
-	<form name="pasteform" id="pasteform" action="/bin/add.php" method="post">
+	<form name="pasteform" id="pasteform" action="/add.php" method="post">
 
 	<textarea id="paste" name="paste" spellcheck="false" rows="30" cols="80"><?
         if(!$postInfo['jscrypt'])

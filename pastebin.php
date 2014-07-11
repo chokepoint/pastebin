@@ -9,10 +9,9 @@
 require_once('PasswordGenerator.php');
 
 // Database connection
-require_once('/etc/creds.php');
-$creds = Creds::getCredentials("pastebin");
-mysql_connect($creds[C_HOST],$creds[C_USER],$creds[C_PASS]);
-@mysql_select_db($creds[C_DATB]) or die( "Unable to select database");
+require_once('config.php');
+mysql_connect($creds['host'],$creds['user'],$creds['pass']);
+@mysql_select_db($creds['db']) or die( "Unable to select database");
 unset($creds);
 
 // Constants
