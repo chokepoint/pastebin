@@ -9,6 +9,7 @@ Modified Defuse.ca's Pastebin
 Database Table
 --------------
  desc pastes;
+ ```
     +---------+-------------+------+-----+---------+-------+
     | Field   | Type        | Null | Key | Default | Extra |
     +---------+-------------+------+-----+---------+-------+
@@ -17,7 +18,7 @@ Database Table
     | time    | int(11)     | YES  |     | NULL    |       |
     | jscrypt | text        | YES  |     | NULL    |       |
     +---------+-------------+------+-----+---------+-------+
-
+```
 Setup
 -----
 mysql -p
