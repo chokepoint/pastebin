@@ -320,8 +320,8 @@ function decryptPaste(){
 ?>
 <p style="padding: 20px;">
 <strong>Important Note:</strong> This page contains user-submitted content. In
-no way is Defuse Security responsible for its contents. If this page contains
-illegal information please <a href="https://defuse.ca/contact.htm">report it to
+no way is the site operator responsible for its contents. If this page contains
+illegal information please <a href="/contact.htm">report it to
 us</a>.
 </p>
 </body>
